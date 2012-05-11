@@ -57,22 +57,29 @@
   :group 'projectile
   :type 'sexp)
 
+(defcustom projectile-project-root-files '(".git" ".hg" ".bzr" "_darcs" ".projectile")
+  "A list of files considered to mark the root of a project."
+  :group 'projectile
+  :type 'list)
 
-;; variables
-(defvar projectile-project-root-files '(".git" ".hg" ".bzr" "_darcs" ".projectile")
-  "A list of files considered to mark the root of a project.")
+(defcustom projectile-ignored-files '("TAGS")
+  "A list of files ignored by projectile."
+  :group 'projectile
+  :type 'list)
 
-(defvar projectile-ignored-files '("TAGS")
-  "A list of files ignored by projectile.")
+(defcustom projectile-ignored-directories '(".idea")
+  "A list of directories ignored by projectile."
+  :group 'projectile
+  :type 'list)
 
-(defvar projectile-ignored-directories '(".idea")
-  "A list of directories ignored by projectile.")
-
-(defvar projectile-ignored-file-extensions '("class" "o" "so" "elc")
-  "A list of file extensions ignored by projectile.")
+(defcustom projectile-ignored-file-extensions '("class" "o" "so" "elc")
+  "A list of file extensions ignored by projectile."
+  :group 'projectile
+  :type 'list)
 
 (defvar projectile-projects-cache (make-hash-table :test 'equal)
   "A hashmap used to cache project file names to speed up related operations.")
+
 
 (defun projectile-invalidate-cache ()
   "Remove the current project's files from `projectile-projects-cache'."
